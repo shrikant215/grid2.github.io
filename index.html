@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            color: black;
+            background: darkgray;
+            font-size: 18px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        h1{
+            color: white;
+
+        }
+
+        code{
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        p > code{
+            font-weight: bold;
+            background: #75beff;
+            padding: 2px;
+        }
+
+        .wrapper > div{
+            background: #eee;
+            padding: 1em;
+            box-shadow: 0px 10px 20px rgba(0,0,0,0,25);
+        }
+
+        .wrapper > div:nth-child(odd){
+            background: #c2e2ff;
+            color: black;
+        }
+
+        .wrapper{
+            display: grid;
+            grid-template-columns:70% 30% ;
+            grid-gap:1em
+        }
+
+        section{
+            background: aliceblue;
+            padding: 20px 40px;
+            margin: 40px 10px;
+        }
+
+        .example-2.wrapper{
+            grid-gap:2em;
+            grid-auto-rows: minmax(100px,auto);
+            grid-template-columns: repeat(3,1fr);
+
+        }
+
+        .example-2 div{
+            background: #3b5f80;
+            color: aliceblue;
+        }
+
+        .nested{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-auto-rows: 70px ;
+            grid-gap: 10px;
+        }
+
+        .example-2.wrapper > div:nth-child(odd){
+            background: whitesmoke;
+            color: black;
+        }
+
+        .nested>div{
+            border: #f4f4f4 2px solid;
+            padding: 5px;
+            text-align: center;
+            background: #c2e2ff;
+            color: black;
+        }
+
+        .example-3v .wrapper{
+            margin-top: 40px;
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-auto-rows: minmax(100px,auto);
+            grid-gap: 1em;
+            align-items: center;
+        }
+
+        .box p{
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .box-1{
+            grid-column: 1/2;
+            grid-row: 1/3;
+        }
+
+        .box-1:hover{
+            scale: 0.95;
+        }
+
+
+
+        .box-2{
+            grid-column: 2;
+            grid-row: 1/3;
+
+        }
+
+        .box-2:hover{
+            scale: 0.95;
+        }
+
+        .box-3{
+            grid-row:3;
+            grid-column: 2/4;
+        }
+        
+
+        .box-3:hover{
+            scale: 0.95;
+        }
+
+        .box-4{
+            grid-column: 1;
+            grid-row: 3/4;
+        }
+
+        .box-4:hover{
+            scale: 0.95;
+        }
+
+        footer{
+            color: white;
+            padding: 20px 20px;
+            margin: 20px 10px;
+        }
+
+        a{
+            text-decoration: none;
+            color: yellow;
+            font-size: 20px;
+        }
+    </style>
+    </body>
+</head>
+<body>
+
+    
+    <header>
+        <h1>CSS Grid Layout Crash Course</h1>
+    </header>
+    <section class="example-1">
+        <h2>Example 1</h2>
+        <p>To display a CSS Grid, just use <code>display: grid;</code> </p>
+        <div class="wrapper">
+            <div>
+                <code>
+                    .wrapper{<br>
+                    display: grid; <br>
+                    grid-template-columns: 70% 30%; <br>
+                    grid-gap: 1em;<br>
+                    }
+                </code>
+
+                <p>This shows 4 boxes with two blue boxes having a width of 70% and the white boxes a width of 30%.</p>
+            </div>
+
+            <div>
+                <p>These two lines are the same values, which can be replaced with <code>grid-gap. Grid-gap</code> allow for each section of the grid to have spacing between them.</p> 
+                <code>
+
+                    grid-column-gap: 1em; <br>
+                    grid-row-gap: 1em; 
+                </code>
+
+            </div>
+
+            <div>
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/jV8B24rSN5o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+           </div>
+
+           <div>
+            <p><code>Grid-template-columns</code> controls the width of the columns, allowing for flexability for each element within a grid.</p>
+            <p><code>Grid-template-rows</code> controls the width of the rows, allowing for flexability for each element within a grid.</p>
+
+        </div>
+    </div>
+</section>
+<section class="example-2">
+    <h2>Example 2</h2>
+    <p>The <code>fr</code> unit allows you to set the size of a track as a fraction. <code>repeat()</code> definition contains repeating parts.
+        
+    </p>
+
+    <div class="wrapper">
+        <div class='nested'>
+            <div>
+                <p>Another</p>
+
+            </div>
+            <div>
+                <p>grid can</p>
+
+            </div>
+            <div>
+                <p>be nested</p>
+
+            </div>
+            <div>
+                <p>inside of</p>
+
+            </div>
+            <div>
+                <p>this</p>
+
+            </div>
+            <div>
+                <p>grid</p>
+
+            </div>
+            <div>
+                <p></p>
+
+            </div>
+            <div>
+                <p></p>
+
+            </div>
+            <div>
+                <p></p>
+
+            </div>
+        </div>
+
+        <div>
+            <code>grid-template-columns: repeat(3, 1fr); </code>
+            <p>This code has columns to repeat 3 times using <code>1fr</code> for its width.</p>
+        </div>
+
+        <div>
+            <code>
+                .example-2 .wrapper{ <br>
+            grid-template-columns: repeat(3, 1fr); <br>
+    grid-gap: 2em; <br>
+
+}
+            </code>
+        </div>
+
+        <div>
+            <pre>
+            &lt;div class="wrapper">
+               &lt;div class='nested'>&lt;div>
+            &lt;/div>			
+            </pre>
+                        <p>The class <code>wrapper</code> is the main grid for this example and <code>nested</code> is the new grid inside of the first box.</p>
+                        
+                    </div>
+
+                    <div>
+                        <code>
+                            .nested{ <br>
+                display: grid; <br>
+                grid-template-columns: repeat(3, 1fr); <br>
+                grid-auto-rows: 70px; <br>
+                grid-gap: 1em; <br>
+            }
+                        </code>
+                    </div>
+                    <div>
+                        <code>
+                            grid-auto-rows: 100px;<br>
+                            grid-auto-rows: minmax(100px, auto); <br>
+                        </code>
+                        <p><code>grid-auto-rows</code> sets the row height. This is a fixed number. If the row height exceeds the given value, then the content will overflow. <br> The value<code> minmax(100px,auto) </code> allows there to be a minimial height of <code> 100px</code> and if it exceeds that heigt the content will auto fix to a height to fit the content.</p>
+                    </div>
+                </div>
+</section>
+
+<section class="example-3">
+    <h2>Example 3</h2>
+    <p>
+        Columns and rows can overlap each other using fractions for values.
+    </p>
+    <div class="wrapper">
+        <div class="box box-1">
+            <p>Box 1</p>
+            <code>.box-1{ <br>
+    grid-column: 1/3; <br>
+    grid-row: 1/3; <br>
+}</code>
+        </div>
+        <div class="box box-2">
+            <p>Box 2</p>
+            <code>.box-2{ <br>
+    grid-column: 3; <br>
+    grid-row: 1/3; <br>
+}</code>
+        </div>
+        <div class="box box-3">
+            <p>Box 3</p>
+            <code>.box-3{ <br>
+    grid-column: 2/4; <br>
+    grid-row: 3; <br></code>
+}
+        </div>
+        <div class="box box-4">
+            <p>Box 4</p>
+            <code>.box-4{ <br>
+
+    grid-column: 1; <br>
+    grid-row: 2/4; <br></code>
+            
+}
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>This was created by following <a href="https://www.youtube.com/watch?v=jV8B24rSN5o">CSS Grid Crash Course</a>. All CSS for the grid remains the same. The layout of the grids are the same. I just input information regarding each part of the tutorial.</p>
+</footer>
+    
+</body>
+</html>
